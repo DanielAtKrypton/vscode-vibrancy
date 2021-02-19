@@ -1,0 +1,23 @@
+os: linux
+dist: bionic
+language: node_js
+node_js:
+- '12'
+before_install:
+- git remote add upstream https://github.com/EYHN/vscode-vibrancy
+install:
+- git pull upstream master
+- git remote remove upstream
+- npm install
+script:
+- git apply patches/*
+- npm run build-win10
+after_success:
+- git config credential.helper "store --file=.git/credentials"
+- echo "https://${GH_TOKEN}:@github.com" > .git/credentials
+- source scripts/create_all_branches.sh
+- create_all_branches
+- git push origin development:master
+env:
+  global:
+    secure: Rlek+b6mxEVOnfckpDb1wo4CLePfD5jweu7GKfmegt/YOtHIqP4Hn4ocThlRPfxzuwmOV9E3pMIQoh43EvBVbmk7ba8pmIWhA58CwpMpBBur9/fWCTX6ouHo2JR8wHIYRu1wTBZ7EmcMUxQAXbqeWE5N7MFmRRrrvN/Ht3yDOcx/Rz3l5u7GGp3fI12lqTFdAMZ2jvrpYLQBdi21c2Mqn8vdKDdzbdwquJBIU0kMZUZsjX17gFbKkJXmGbtlE5yt4GcBfHGoXFeAgmk+VfOzwRGuwCytZsG+XJddMRLelxOLQsurruuFZwiKsOMhWXs4mO3x+x+8WgRqfHxj1Q5+yBcbYHnViY6HiZ8jPic7BlEPSF9kw7vlQRxxEp4N0rxb2E289B6PwWARAd+WrWv1+9oxhpzvCNCokS70lCNeOJu1WNq3SKuct98FAJi3+SI1HfVnSgcxyUxwaWHK6WvBuWOAWNkjVfDVgD9FG+b/Jnnt9E4okBjd708wLGH+vr0cWma1/jmadxhYB4mOKfvg5xwvuBwCEi0OO/CJARO7SDePN8kTEorzZpP4dejA4xJ3hdLVmwpueYUmeQo56KPH6eCgcODRuEn/S3TNTLfGqKF8ya4j5aasKUzxr18XGKL8qe7GMHnBptVZgb1K8Rg7rz9Us0tQAyTyV95Hruc08Sc=
