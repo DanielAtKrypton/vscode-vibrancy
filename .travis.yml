@@ -6,7 +6,8 @@ node_js:
 before_install:
 - git remote add upstream https://github.com/EYHN/vscode-vibrancy
 install:
-- git rebase upstream/master
+- git config pull.rebase true
+- git pull upstream master
 - git remote remove upstream
 - npm install
 script:
