@@ -6,15 +6,14 @@ node_js:
 before_install:
 - git remote add upstream https://github.com/EYHN/vscode-vibrancy
 install:
-- git pull upstream master -s ours
+- git rebase upstream/master
 - git remote remove upstream
 - npm install
 script:
-- git apply patches/*
 - npm run build-win10
 after_success:
 - tarFile=build/passed.tar.gz
-- tar -cf $tarFile --exclude={"build","scripts",".travis.yml","patches",".git","node_modules"} .
+- tar -cf $tarFile --exclude={"build","scripts",".travis.yml",".git","node_modules"} .
 - git config advice.detachedHead false
 - source scripts/create_all_branches.sh
 - create_all_branches
