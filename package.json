@@ -1,13 +1,13 @@
 {
-  "name": "vscode-vibrancy",
-  "displayName": "Vibrancy",
-  "description": "Vibrancy Effect for Visual Studio Code",
+  "name": "vscode-vibrancy-4k",
+  "displayName": "Vibrancy-4k",
+  "description": "Vibrancy 4k Effect for Visual Studio Code",
   "version": "1.0.14",
   "publisher": "eyhn",
   "author": {
-    "email": "cneyhn@gmail.com",
-    "name": "eyhn",
-    "url": "https://eyhn.in"
+    "email": "daniel@kryptonunite.com",
+    "name": "Daniel Kaminski de Souza",
+    "url": "https://github.com/DanielAtKrypton"
   },
   "engines": {
     "vscode": "^1.52.1"
@@ -18,10 +18,10 @@
   ],
   "repository": {
     "type": "git",
-    "url": "https://github.com/EYHN/vscode-vibrancy"
+    "url": "https://github.com/DanielAtKrypton/vscode-vibrancy"
   },
   "bugs": {
-    "url": "https://github.com/EYHN/vscode-vibrancy/issues"
+    "url": "https://github.com/DanielAtKrypton/vscode-vibrancy/issues"
   },
   "preview": true,
   "icon": "images/logo.png",
@@ -117,7 +117,7 @@
     "mz": "^2.7.0"
   },
   "devDependencies": {
-    "node-gyp": "^7.1.2",
-    "node-addon-api": "^3.1.0"
+    "node-addon-api": "^3.1.0",
+    "node-gyp": "^7.1.2"
   }
 }
